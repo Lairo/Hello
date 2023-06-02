@@ -9,10 +9,22 @@ namespace Hello
     internal static class HelloGame
     {
         public const int MAXIMUM = 10;
-        public static Random random = new Random();
+        private static Random random = new Random();
         static private int currentNumber = random.Next(1, MAXIMUM + 1);
         static private int nextNumber = random.Next(1, MAXIMUM + 1);
         static private int pot = 10;
+
+        internal static void Cheat()
+        {
+            random = new Random(1);
+            Random cheatRandom = new Random(1);
+            Console.WriteLine("The first 20 numbers will be: ");
+
+            for (int i = 0; i < 20; i++)
+            {
+                Console.Write(cheatRandom.Next(1, MAXIMUM + 1) + " ");
+            }
+        }
 
         internal static int GetPot(){ return pot; }
 

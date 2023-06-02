@@ -22,21 +22,10 @@ namespace Hello
                 if (key == 'h') HelloGame.Guess(true);
                 else if (key == 'l') HelloGame.Guess(false);
                 else if (key == '?') HelloGame.Hint();
-                else if (key == '$') Cheat();
+                else if (key == '$') HelloGame.Cheat();
                 else return;
             }
             Console.WriteLine("The is empty. Bye!");
-        }
-
-        internal static void Cheat()
-        {   HelloGame.random = new Random(1);
-            Random cheatRandom = new Random(1);
-            Console.WriteLine("The first 20 numbers will be: ");
-
-            for (int i = 0; i < 20; i++)
-            {
-                Console.Write(cheatRandom.Next(1, HelloGame.MAXIMUM +1) + " ");
-            }
         }
     }
 }
