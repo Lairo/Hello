@@ -9,16 +9,12 @@ namespace Hello
     internal static class HelloGame
     {
         public const int MAXIMUM = 10;
-        static Random random = new Random(10);
-        static private int currentNumber = random.Next(1, 10);
-        static private int nextNumber = random.Next(1, 10);
+        public static Random random = new Random();
+        static private int currentNumber = random.Next(1, MAXIMUM + 1);
+        static private int nextNumber = random.Next(1, MAXIMUM + 1);
         static private int pot = 10;
 
-        internal static int GetPot()
-        {
-            int newPot = pot;
-            return newPot;
-        }
+        internal static int GetPot(){ return pot; }
 
         internal static void Guess(bool higher)
         {
@@ -34,7 +30,7 @@ namespace Hello
             }
 
             currentNumber = nextNumber;
-            nextNumber = random.Next(1, 10);
+            nextNumber = random.Next(1, MAXIMUM + 1);
             Console.WriteLine($"\nThe current number is {currentNumber}.");
         }
 
